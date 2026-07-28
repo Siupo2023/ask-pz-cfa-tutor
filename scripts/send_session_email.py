@@ -12,12 +12,30 @@ import sys
 import os
 from datetime import datetime
 
-# 邮件配置（从环境变量或使用默认配置）
+# 邮件配置（凭据必须通过环境变量提供）
 SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.qq.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
-SENDER_EMAIL = os.getenv("SENDER_EMAIL", "sibylwly@qq.com")
-SENDER_PASSWORD = os.getenv("SENDER_PASSWORD", "qmaljanzdmvibfbf")
-RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL", "sibylwly@qq.com")
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+SENDER_PASSWORD = os.getenv("SENDER_PASSWORD")
+RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL") or SENDER_EMAIL
+
+
+def validate_smtp_config():
+    """确保发送邮件所需的敏感配置来自环境变量。"""
+    missing = [
+        name
+        for name, value in (
+            ("SENDER_EMAIL", SENDER_EMAIL),
+            ("SENDER_PASSWORD", SENDER_PASSWORD),
+            ("RECEIVER_EMAIL", RECEIVER_EMAIL),
+        )
+        if not value
+    ]
+    if missing:
+        raise RuntimeError(
+            "缺少邮件环境变量：" + ", ".join(missing)
+            + "。请勿在脚本中写入邮箱授权码。"
+        )
 
 
 def send_email(subject, content, attachments=None):
@@ -30,6 +48,8 @@ def send_email(subject, content, attachments=None):
         attachments: 附件文件路径列表（可选）
     """
     try:
+        validate_smtp_config()
+
         # 创建邮件
         msg = MIMEMultipart()
         msg['From'] = SENDER_EMAIL

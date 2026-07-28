@@ -9,12 +9,30 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import os
 
-# 邮件配置
-SMTP_SERVER = "smtp.qq.com"
-SMTP_PORT = 587
-SENDER_EMAIL = "sibylwly@qq.com"
-SENDER_PASSWORD = "qmaljanzdmvibfbf"
-RECEIVER_EMAIL = "sibylwly@qq.com"
+# 邮件配置（凭据必须通过环境变量提供）
+SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.qq.com")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+SENDER_PASSWORD = os.getenv("SENDER_PASSWORD")
+RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL") or SENDER_EMAIL
+
+
+def validate_smtp_config():
+    """确保发送邮件所需的敏感配置来自环境变量。"""
+    missing = [
+        name
+        for name, value in (
+            ("SENDER_EMAIL", SENDER_EMAIL),
+            ("SENDER_PASSWORD", SENDER_PASSWORD),
+            ("RECEIVER_EMAIL", RECEIVER_EMAIL),
+        )
+        if not value
+    ]
+    if missing:
+        raise RuntimeError(
+            "缺少邮件环境变量：" + ", ".join(missing)
+            + "。请勿在脚本中写入邮箱授权码。"
+        )
 
 
 def create_bazi_html_email():
@@ -711,6 +729,8 @@ def create_bazi_html_email():
 def send_email(subject, html_content):
     """发送HTML邮件"""
     try:
+        validate_smtp_config()
+
         # 创建邮件
         msg = MIMEMultipart()
         msg['From'] = SENDER_EMAIL
@@ -743,7 +763,7 @@ if __name__ == "__main__":
 
     if success:
         print(f"✅ {message}")
-        print("📧 邮件已发送到：sibylwly@qq.com")
+        print(f"📧 邮件已发送到：{RECEIVER_EMAIL}")
         print("🎨 本次邮件采用精美HTML格式，包含渐变背景、动画效果、响应式设计")
     else:
         print(f"❌ {message}")
