@@ -12,7 +12,7 @@ from datetime import datetime
 
 # 源目录和目标目录
 SOURCE_DIR = "/Volumes/小宝的硬盘/get 笔记下载/voicenotes_202604210907_getnotes_archive_1a79b37a0004a708trO0CxBW/notes"
-TARGET_DIR = os.path.expanduser("~/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/skills-hub/skills/personal/ask-pz/references/GetNotes导出")
+TARGET_DIR = os.path.expanduser("~/.claude/skills/ask-pz/references/GetNotes导出")
 
 # CFA 相关关键词（扩展版）
 CFA_KEYWORDS = [
