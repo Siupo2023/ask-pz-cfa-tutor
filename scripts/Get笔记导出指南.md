@@ -42,7 +42,7 @@
 
 导出后，笔记应该放在：
 ```
-~/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/skills-hub/skills/personal/ask-pz/references/GetNotes导出/
+~/.claude/skills/ask-pz/references/GetNotes导出/
 ```
 
 ## 🔧 导出完成后

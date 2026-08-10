@@ -11,7 +11,7 @@ from datetime import datetime
 
 # 源目录和目标目录
 SOURCE_DIR = None  # 用户指定
-TARGET_DIR = os.path.expanduser("~/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/skills-hub/skills/personal/ask-pz/references/GetNotes导出")
+TARGET_DIR = os.path.expanduser("~/.claude/skills/ask-pz/references/GetNotes导出")
 
 def organize_notes(source_path):
     """整理导出的笔记文件"""

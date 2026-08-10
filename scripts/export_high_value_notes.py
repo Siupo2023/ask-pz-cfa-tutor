@@ -13,7 +13,7 @@ from datetime import datetime
 
 # 源目录和目标目录
 SOURCE_DIR = "/Volumes/小宝的硬盘/get 笔记下载/voicenotes_202604210907_getnotes_archive_1a79b37a0004a708trO0CxBW/notes"
-TARGET_DIR = os.path.expanduser("~/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/skills-hub/skills/personal/ask-pz/references/GetNotes导出")
+TARGET_DIR = os.path.expanduser("~/.claude/skills/ask-pz/references/GetNotes导出")
 
 # 高价值笔记阈值（字节）
 MIN_SIZE = 50000  # 50KB

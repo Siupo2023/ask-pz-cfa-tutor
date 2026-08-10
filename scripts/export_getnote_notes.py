@@ -14,7 +14,7 @@ API_KEY = os.getenv("GETNOTE_API_KEY")
 BASE_URL = "https://open-api.biji.com/getnote/openapi"
 
 # 输出目录
-OUTPUT_DIR = os.path.expanduser("~/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/skills-hub/skills/personal/ask-pz/references/GetNotes导出")
+OUTPUT_DIR = os.path.expanduser("~/.claude/skills/ask-pz/references/GetNotes导出")
 
 def search_notes(keyword="CFA"):
     """搜索笔记"""

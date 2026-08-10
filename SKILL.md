@@ -59,57 +59,36 @@ description: 品职(PZ)老师的CFA课程智能学习助手。采用苏格拉底
 
 ---
 
-## 📚 学习资料库路径
+## 📚 学习资料与个人上下文
 
-### 完整资料索引
-**所有资料索引**：`~/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/skills-hub/skills/personal/ask-pz/references/CFA二级资料库索引.md`
+### 每次启动先读取个人上下文
 
-### 资料来源（优先级顺序）
+唯一个人学习档案位于原 Logseq 图谱：
 
-1. **VoiceNotes CFA 笔记**：`~/Desktop/VoiceNotes-完整内容/CFA相关/`
-   - 231 篇详细的 CFA 录音笔记
-   - 包含智能总结、课堂实录、重点速览
+`~/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/CFA学习笔记/00_学习档案/`
 
-2. **Logseq 参考资料**：`~/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/skills-hub/skills/personal/ask-pz/references/`
-   - **GetNotes导出**（463篇）：从Get笔记导入的CFA相关学习笔记，按科目分类
-     - FRA/（222个）：财务报表分析相关笔记
-     - Quant/（53个）：数量方法相关笔记
-     - Equity/（48个）：股票投资相关笔记
-     - FixedIncome/（8个）：固定收益相关笔记
-     - Derivatives/（3个）：衍生品相关笔记
-     - AltInvestments/（6个）：另类投资相关笔记
-     - Economics/（3个）：经济学相关笔记
-     - Ethics/（3个）：道德相关笔记
-     - Other/（117个）：综合类笔记
-   - 其他CFA相关笔记：300+ 篇
-   - 涵盖所有 10 个科目
-   - 包含资料库索引文件
+依次读取：
 
-3. **VoiceNotes CFA 笔记**：`~/Desktop/VoiceNotes-完整内容/CFA相关/`
-   - 231 篇详细的 CFA 录音笔记
-   - 包含智能总结、课堂实录、重点速览
-   - **知识点图谱**（11 个 PDF）：10 科 + 合集
-   - **知识框架图**（10 个 PDF）：每科独立框架
-   - **基础班课程**（3 个 PDF）：Economics, Quantitative Methods
-   - **经典题**（1 个 PDF）：Quantitative 带答案
-   - **公式表合集**（ZIP）：完整公式汇总
+1. `AI学习上下文.md`
+2. `学习进度.md`
+3. `薄弱点与困惑.md`
+4. `学习会话索引.md`
 
-4. **品职教育资料**：`~/Downloads/`
-   - **知识点图谱**（11 个 PDF）：10 科 + 合集
-   - **知识框架图**（10 个 PDF）：每科独立框架
-   - **基础班课程**（3 个 PDF）：Economics, Quantitative Methods
-   - **经典题**（1 个 PDF）：Quantitative 带答案
-   - **公式表合集**（ZIP）：完整公式汇总
+这里记录用户已经掌握的内容、真实困惑和教学偏好。不要用通用资料覆盖这些个人状态，也不要把完整讲稿复制回 Logseq。
 
-5. **CFA 原版教材**：`~/Downloads/25年CFA二级原版书/`
-   - Book 1-5 官方教材
+### 通用参考资料（外部 Skill 仓库）
 
-6. **模拟考试**：`~/Downloads/mock1/`, `mock2/`, `mock3/`, `mockA/`, `mockB/`
-   - 5 套完整 Mock 考试 + 答案
+1. **Ask PZ 本地参考库**：`~/.claude/skills/ask-pz/references/`
+   - 按 FRA、Quant、Equity 等科目整理的讲稿与参考笔记。
+   - 技术结论、公式和考试口径优先从这里核验。
+2. **VoiceNotes CFA 笔记**：`~/Desktop/VoiceNotes-完整内容/CFA相关/`
+3. **CFA 原版教材及模拟题**：仅在本机存在且任务确有需要时使用；不复制进 Logseq 图谱。
 
-7. **学习进度追踪器**：`~/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/skills-hub/skills/personal/ask-pz/progress/cfa-study-tracker.md`
+### 内容边界
 
-### 资料总量统计：1000+ 份学习材料
+- Logseq：只保存个人学习进度、薄弱点、会话摘要和用户主动保留的正文笔记。
+- Ask PZ GitHub 仓库：保存 Skill、通用讲稿、索引和脚本。
+- PDF、教材、模拟题及大体积资料不进入 Logseq 或日常笔记 GitHub 镜像。
 
 ---
 
@@ -214,10 +193,10 @@ description: 品职(PZ)老师的CFA课程智能学习助手。采用苏格拉底
 ### 双重追踪机制
 
 #### STEP 1：记录每日会话
-创建/更新：`sessions/YYYY-MM-DD/session-notes.md`
+在 Logseq 的 `CFA学习笔记/00_学习档案/会话记录/` 创建或更新会话摘要，并在 `学习会话索引.md` 增加链接。
 
-#### STEP 2：更新中央进度追踪器
-更新：`progress/cfa-study-tracker.md`
+#### STEP 2：更新个人学习状态
+根据理解检查结果更新 `学习进度.md` 和 `薄弱点与困惑.md`。只有能够解释或应用的知识才标记为已掌握。
 
 #### STEP 3：自动发送会话记录到邮箱（新增）
 **每次会话结束时，自动将会话记录发送到用户邮箱**
@@ -285,23 +264,17 @@ python3 ~/.claude/skills/ask-pz/scripts/send_session_email.py "会话主题" "�
 
 ---
 
-## 🔍 搜索命令
+## 🔍 搜索顺序
 
 ```bash
-# 搜索 GetNotes 导出笔记（所有CFA笔记）
-grep -r "关键词" ~/Library/Mobile\ Documents/iCloud~com~logseq~logseq/Documents/skills-hub/skills/personal/ask-pz/references/GetNotes导out/ --include="*.md" -C 3 -i
+# 先读取个人学习上下文
+rg -n "关键词" "$HOME/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/CFA学习笔记/00_学习档案" -g '*.md'
 
-# 搜索特定科目笔记（例如FRA）
-grep -r "关键词" ~/Library/Mobile\ Documents/iCloud~com~logseq~logseq/Documents/skills-hub/skills/personal/ask-pz/references/GetNotes导出/FRA/ --include="*.md" -C 3 -i
+# 再核验外部 Ask PZ 参考库
+rg -n "关键词" "$HOME/.claude/skills/ask-pz/references" -g '*.md'
 
-# 搜索 VoiceNotes 笔记
-grep -r "关键词" ~/Desktop/VoiceNotes-完整内容/CFA相关/ --include="*.md" -C 3 -i
-
-# 搜索 Logseq references（包含资料索引）
-grep -r "关键词" ~/Library/Mobile\ Documents/iCloud~com~logseq~logseq/Documents/skills-hub/skills/personal/ask-pz/references/ --include="*.md" -C 3 -i
-
-# 查找品职资料（使用资料索引）
-# 查看：~/Library/Mobile Documents/.../ask-pz/references/CFA二级资料库索引.md
+# 必要时补充 VoiceNotes
+rg -n "关键词" "$HOME/Desktop/VoiceNotes-完整内容/CFA相关" -g '*.md'
 ```
 
 ---
