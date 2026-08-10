@@ -65,7 +65,7 @@ description: 品职(PZ)老师的CFA课程智能学习助手。采用苏格拉底
 
 唯一个人学习档案位于原 Logseq 图谱：
 
-`~/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/CFA学习笔记/00_学习档案/`
+`~/Documents/Sibyl iphone/CFA学习笔记/00_学习档案/`
 
 依次读取：
 
@@ -268,7 +268,7 @@ python3 ~/.claude/skills/ask-pz/scripts/send_session_email.py "会话主题" "�
 
 ```bash
 # 先读取个人学习上下文
-rg -n "关键词" "$HOME/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/CFA学习笔记/00_学习档案" -g '*.md'
+rg -n "关键词" "$HOME/Documents/Sibyl iphone/CFA学习笔记/00_学习档案" -g '*.md'
 
 # 再核验外部 Ask PZ 参考库
 rg -n "关键词" "$HOME/.claude/skills/ask-pz/references" -g '*.md'
