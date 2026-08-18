@@ -61,9 +61,11 @@ description: 品职(PZ)老师的CFA课程智能学习助手。采用苏格拉底
 
 ## 📚 学习资料与个人上下文
 
+> 2026-08-18 全面路径修复：8月10日 vault 迁移后旧路径（iCloud logseq / Desktop VoiceNotes / Downloads）已全部失效，本节为核实后的真实位置。
+
 ### 每次启动先读取个人上下文
 
-唯一个人学习档案位于原 Logseq 图谱：
+唯一个人学习档案（已迁移）：
 
 `~/Documents/Sibyl iphone/CFA学习笔记/00_学习档案/`
 
@@ -73,22 +75,52 @@ description: 品职(PZ)老师的CFA课程智能学习助手。采用苏格拉底
 2. `学习进度.md`
 3. `薄弱点与困惑.md`
 4. `学习会话索引.md`
+5. `备考总计划-2027年5月.md`（备考主计划，2026-08-18 起）
 
-这里记录用户已经掌握的内容、真实困惑和教学偏好。不要用通用资料覆盖这些个人状态，也不要把完整讲稿复制回 Logseq。
+这里记录用户已经掌握的内容、真实困惑和教学偏好。不要用通用资料覆盖这些个人状态。Obsidian 镜像副本（`/Users/sibyl/7-up2026-notes/notes/CFA学习笔记/`）与本档案内容一致，以 Sibyl iphone 版为准。
 
-### 通用参考资料（外部 Skill 仓库）
+### 通用参考资料（按优先级）
 
 1. **Ask PZ 本地参考库**：`~/.claude/skills/ask-pz/references/`
-   - 按 FRA、Quant、Equity 等科目整理的讲稿与参考笔记。
-   - 技术结论、公式和考试口径优先从这里核验。
-2. **VoiceNotes CFA 笔记**：`~/Desktop/VoiceNotes-完整内容/CFA相关/`
-3. **CFA 原版教材及模拟题**：仅在本机存在且任务确有需要时使用；不复制进 Logseq 图谱。
+   - 按 FRA（197篇）、Quant（46篇）、Other（45篇）、Equity、FixedIncome、Derivatives 整理的 GetNotes 讲稿与参考笔记（2026-08-18 双批增量：硬盘归档15篇+云端API 32篇，共293篇；FRA外币折算/金融机构分析两大系列已补全）
+   - `cfa-prism-analyses/`：7份深度知识剖析（商誉、权益法、外币折算、股份支付、财报质量、ML、员工福利）
+   - llm-wiki 仓库镜像：`/Users/sibyl/Documents/GitHub/llm-wiki/ask-pz-cfa-tutor/references/`
+   - 技术结论、公式和考试口径优先从这里核验
+
+1b. **Get笔记录音笔记**（三层数据源）：
+   - 云端 API（凭据在环境变量，持续新增，可随时 recall/list 检索；上次全量同步2026-08-18，647条中CFA 272条）
+   - 硬盘全量归档 `/Volumes/小宝的硬盘/02_学习阅读/笔记与知识库/get 笔记下载/voicenotes_202604210907_getnotes_archive_1a79b37a0004a708trO0CxBW/`（473篇HTML原文备查，需挂载硬盘）
+   - ima「cfa」共享知识库（261文件，与references高度重合，含按科目合并大文件如FRA 49篇合集，可作备用检索）
+
+2. **品职知识框架图（2026版，12个PDF）**：
+   `~/Library/CloudStorage/GoogleDrive-fongsiupo2025@gmail.com/其他计算机/我的 Mac/Documents/Sibyl iphone/assets/`
+   - 覆盖全部10科：FRA、Equity、Fixed Income、Quant、Economics、Derivatives、Alternative、Portfolio、Corporate Issuers、Ethics + 财务知识点图谱
+   - 每科开始学习前先看框架图建立全局结构
+
+3. **品职基础班讲义与经典题（iCloud云盘）**：
+   `~/Library/Mobile Documents/com~apple~CloudDocs/pz-level2/`
+   - 基础班：Economics 墨迹版、FSA 笔记、Quantitative Methods 墨迹版
+   - 经典题（带答案）：Economics、FSA、Quantitative
+   - 注意：此目录仅3科，其余科目资料待补充
+
+4. **Get笔记按科目汇总导出（2026-03，6个大文件）**：`~/Documents/CFA笔记导出/`
+   - CFA笔记_财务报告.md（1.9MB）、_数量方法.md（0.6MB）、_公司间投资.md（0.5MB）、_金融资产与工具.md（0.5MB）、_CFA其他.md、_未分类.md（1MB）
+
+### ⚠️ 已失效/缺失资料（2026-08-18 二次核实更新）
+
+以下资料状态已更新（VoiceNotes 已找回，见上文1b）：
+- ~~`~/Desktop/VoiceNotes-完整内容/CFA相关/`（231篇录音笔记）~~ → **已找回**：全量归档在外接硬盘，93篇CFA相关已提炼15篇增量进references，其余78篇原有md已覆盖
+- ~~`~/Downloads/25年CFA二级原版书/`（Book 1-5）~~ → 本机未找到
+- ~~`~/Downloads/mock1/` ~ `mockB/`（5套Mock）~~ → 本机未找到
+- ~~iCloud logseq references 目录~~ → 已迁移（见上文第1条）
+- 迁移备份残留（只读，勿写入）：`~/Documents/7-up2026-migration-safety/2026-08-10/old-vault-text-config/`
+- 若学习需要原版书/Mock，先提醒用户补充资料，不要凭训练数据替代
 
 ### 内容边界
 
-- Logseq：只保存个人学习进度、薄弱点、会话摘要和用户主动保留的正文笔记。
+- 个人学习档案（Sibyl iphone vault）：只保存学习进度、薄弱点、会话摘要和用户主动保留的正文笔记。
 - Ask PZ GitHub 仓库：保存 Skill、通用讲稿、索引和脚本。
-- PDF、教材、模拟题及大体积资料不进入 Logseq 或日常笔记 GitHub 镜像。
+- PDF、教材、模拟题及大体积资料不进入日常笔记 GitHub 镜像。
 
 ---
 
@@ -193,10 +225,10 @@ description: 品职(PZ)老师的CFA课程智能学习助手。采用苏格拉底
 ### 双重追踪机制
 
 #### STEP 1：记录每日会话
-在 Logseq 的 `CFA学习笔记/00_学习档案/会话记录/` 创建或更新会话摘要，并在 `学习会话索引.md` 增加链接。
+在个人学习档案创建/更新：`~/Documents/Sibyl iphone/CFA学习笔记/00_学习档案/会话记录/YYYY-MM-DD-主题.md`，并在 `学习会话索引.md` 增加链接。
 
 #### STEP 2：更新个人学习状态
-根据理解检查结果更新 `学习进度.md` 和 `薄弱点与困惑.md`。只有能够解释或应用的知识才标记为已掌握。
+更新学习档案中的 `学习进度.md` 和 `薄弱点与困惑.md`（路径同上）。只有能够解释或应用的知识才标记为已掌握。
 
 #### STEP 3：自动发送会话记录到邮箱（新增）
 **每次会话结束时，自动将会话记录发送到用户邮箱**
@@ -267,14 +299,17 @@ python3 ~/.claude/skills/ask-pz/scripts/send_session_email.py "会话主题" "�
 ## 🔍 搜索顺序
 
 ```bash
-# 先读取个人学习上下文
+# 先读个人学习上下文（学习档案）
 rg -n "关键词" "$HOME/Documents/Sibyl iphone/CFA学习笔记/00_学习档案" -g '*.md'
 
-# 再核验外部 Ask PZ 参考库
+# 搜索 Ask PZ 参考库（全部科目讲稿）
 rg -n "关键词" "$HOME/.claude/skills/ask-pz/references" -g '*.md'
 
-# 必要时补充 VoiceNotes
-rg -n "关键词" "$HOME/Desktop/VoiceNotes-完整内容/CFA相关" -g '*.md'
+# 搜索特定科目（例如FRA）
+rg -n "关键词" "$HOME/.claude/skills/ask-pz/references/FRA" -g '*.md'
+
+# 搜索 Get笔记按科目汇总导出（大文件，2026-03导出）
+rg -n "关键词" "$HOME/Documents/CFA笔记导出" -g '*.md'
 ```
 
 ---
